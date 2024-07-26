@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
+        Connect.checkAndCreate();
 //        Connect c1 = new Connect();
 //        Connect.connect();
-        Connect.setIdInt();
+//        Connect.setIdInt();
 //        Scanner sc = new Scanner(System.in);
 //        while (true){
 //        Connect.Access();

@@ -1,3 +1,6 @@
+import org.sqlite.SQLiteException;
+
+import java.io.*;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -122,6 +125,50 @@ public class Connect {
         }
     }// end Delete
 
+
+    public static void checkAndCreate(){
+
+        String a1 = "bacon";
+        String a2 = "CD";
+        int a3 = 0;
+        String s4 = "bacon" + 0 + 1;
+        Connection conn = null;
+        Scanner sc = new Scanner(System.in);
+        String query = "SELECT * FROM CD";
+
+        String url = "jdbc:sqlite:C:/sqlite/db/Demo.db";
+
+//        System.out.println("oh no! making it now");
+        File file = new File("C:/sqlite/db/Demo.db");
+        if (file.exists()){
+            System.out.println("file exsists");
+        }
+        else{
+            System.out.println("File Doesn't Exist ---> Making File");
+            try {
+                file.createNewFile();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+
+
+        try {
+            conn = DriverManager.getConnection(url);
+            Statement st = conn.createStatement();
+            st.executeQuery(query);
+
+        }
+        catch (SQLiteException e){
+
+        }
+        catch (SQLException e) {
+            System.out.println(e);
+        }
+     }
+
+
+
     public static void Access() {
         Connection conn = null;
         Scanner sc = new Scanner(System.in);
@@ -162,6 +209,7 @@ public class Connect {
             } catch (SQLException e) {
                 System.out.println(e);
             }//end try catch
+
         } catch (Exception e) {
             e.printStackTrace();
         }

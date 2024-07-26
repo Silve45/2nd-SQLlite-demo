@@ -5,6 +5,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         String check;
 
+//        Connect.checkAndCreate();
+
         while (true){
             System.out.println("What would you like to Do?" +
                     "\nSee all items in the Database (A)" +
